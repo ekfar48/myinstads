@@ -43,7 +43,10 @@ async def open(ctx,insta="morgen_shtern"):
     screenshot = driver.save_screenshot('my_screenshot.png')
     ##await ctx.send(file=discord.File("my_screenshot.png"))
 
+    embed_en = discord.Embed(title=f"text", description=f"**txtz", color=0xea4335)
+    embed_en.set_image(url="attachment://my_screenshot.png") 
+
     file = discord.File(r"my_screenshot.png", filename="my_screenshot.png")
-    await ctx.send(file=file)
+    await ctx.send(file=file,embed=embed_en)
     
 client.run(os.environ['token'])
