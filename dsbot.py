@@ -12,7 +12,7 @@ import os
 ##from pyffmpeg import FFmpeg
 from PIL import Image, ImageChops
 from selenium import webdriver
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.chrome.options import Options
 ##from instabot import Bot
 ##import urllib.request
 import datetime,pytz
