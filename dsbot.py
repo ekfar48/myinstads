@@ -45,11 +45,11 @@ async def open(ctx,arg1="morgen_shtern"):
     
     sleep(1)
     
-    elem= driver.find_element_by_css_selector(".NprOob")
-    elems= driver.find_element_by_css_selector(".WlRRw")
-    print(elem.text)
+  #  elem= driver.find_element_by_css_selector(".NprOob")
+   # elems= driver.find_element_by_css_selector(".WlRRw")
+   # print(elem.text)
     
-    screenshot = driver.save_screenshot('my_screenshot.png')
+  #  screenshot = driver.save_screenshot('my_screenshot.png')
 #     await ctx.send(file=discord.File("my_screenshot.png"))
     
 
