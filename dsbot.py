@@ -58,7 +58,7 @@ async def open(ctx,arg1="morgen_shtern"):
     #sleep(1)
    # im_crop = im.crop((10, 345, 690, 805))
     #sleep(1)
-    #im_crop.save('guido_pillow_crop.png', quality=95)
+    im.save('guido_pillow_crop.png', quality=95)
     
 #     await ctx.send(file=discord.File("guido_pillow_crop.png"))
 
