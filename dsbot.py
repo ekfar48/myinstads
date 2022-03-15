@@ -30,7 +30,7 @@ async def on_ready():
 @client.command()
 async def open(ctx,arg1):
     #подключения драйвера
-    chrome_options = webdriver.Options()
+    chrome_options = Options()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
