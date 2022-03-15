@@ -38,7 +38,7 @@ async def open(insta="morgen_shtern"):
     chrome_options.add_argument('window-size=945,1030') 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options) 
     driver.get(f"https://www.instagram.com/{insta}") 
-    driver.maximize_window()
+    #driver.maximize_window()
     ##
     screenshot = driver.save_screenshot('my_screenshot.png')
     await ctx.send(file=discord.File("my_screenshot.png"))
