@@ -7,7 +7,7 @@ from discord import Permissions
 from discord.utils import get
 from asyncio import sleep
 
-import pyautogui as pp
+##import pyautogui as pp
 import os
 from pyffmpeg import FFmpeg
 from PIL import Image, ImageChops
