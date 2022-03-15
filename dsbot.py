@@ -28,7 +28,7 @@ async def on_ready():
         activity=discord.Game(">open,move,click")) 
         
 @client.command()
-async def open(insta="morgen_shtern"):
+async def open(ctx,insta="morgen_shtern"):
     chrome_options = webdriver.ChromeOptions() 
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN") 
     chrome_options.add_argument("--headless") 
