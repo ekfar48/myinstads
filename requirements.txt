@@ -26,3 +26,4 @@ webdriver_manager==3.5.1
 selenium-stealth
 Pillow
 webdriver-manager==3.5.1
+pyautogui
