@@ -7,7 +7,7 @@ from discord import Permissions
 from discord.utils import get
 from asyncio import sleep
 
-##import pyautogui as pp
+import pyautogui as pp
 import os
 ##from pyffmpeg import FFmpeg
 from PIL import Image, ImageChops
@@ -37,47 +37,16 @@ async def open(ctx,arg1="morgen_shtern"):
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--start-maximized")
     ##chrome_options.add_argument('window-size=945,1030')
-    driver = webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)
-    
-    
+    driver = webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)       
     driver.get(f"https://www.instagram.com/{arg1}")
-    driver.maximize_window()
-    
-    sleep(1)
-    
-  #  elem= driver.find_element_by_css_selector(".NprOob")
-   # elems= driver.find_element_by_css_selector(".WlRRw")
-   # print(elem.text)
-    
+    driver.maximize_window()    
+    sleep(1)  
     screenshot = driver.save_screenshot('my_screenshot.png')
-#     await ctx.send(file=discord.File("my_screenshot.png"))
-    
 
 
     im = Image.open('my_screenshot.png')
-    #sleep(1)
-   # im_crop = im.crop((10, 345, 690, 805))
-    #sleep(1)
-    im.save('guido_pillow_crop.png', quality=95)
-    
-#     await ctx.send(file=discord.File("guido_pillow_crop.png"))
-
-    #textil = elems.text
-   # lents = len(elems.text)
-   # bin = int(lents) - int(5)
-   # rel = textil[0:bin]
-   # print(textil[0:1])
-
-    #if str(textil[0:1]) == str("+"):
-        #embed_en = discord.Embed(title=f"▬▬▬▬▬▬▬▬[Акции {arg1}]▬▬▬▬▬▬▬▬", description=f"**Стоимость:** {elem.text} │ **просадок:** {rel}", color=0x3cd126)
-    #else:
-        #embed_en = discord.Embed(title=f"▬▬▬▬▬▬▬▬[Акции {arg1}]▬▬▬▬▬▬▬▬", description=f"**Стоимость:** {elem.text} │ **просадок:** {rel}", color=0xea4335)
+    im.save('guido_pillow_crop.png', quality=95)   
     embed_en = discord.Embed(title="text",description="desc", color=0xea4335)
-#     await ctx.send(elem.text)
-#     embed_en = discord.Embed(title=f"▬▬▬▬▬▬▬▬[Акции {arg1}]▬▬▬▬▬▬▬▬", description=f"**Стоимость:** {elem.text} │ **просадок:**fds", color=0xea4335)
-
-
-
     file = discord.File(r"guido_pillow_crop.png", filename="guido_pillow_crop.png")
     embed_en.set_image(url="attachment://guido_pillow_crop.png")
 
@@ -86,5 +55,28 @@ async def open(ctx,arg1="morgen_shtern"):
     
     os.remove("my_screenshot.png")
     os.remove("guido_pillow_crop.png")
+
+@client.command()
+async def move(ctx,xy):
+
+    a = xy.split(",")
+
+    pp.moveTo(int(a[0]),int(a[1]))
+
+
+
+    screenshot = driver.save_screenshot('my_screenshot.png')
+    im = Image.open('my_screenshot.png')
+    im.save('guido_pillow_crop.png', quality=95)   
+    embed_en = discord.Embed(title="text",description="desc", color=0xea4335)
+    file = discord.File(r"guido_pillow_crop.png", filename="guido_pillow_crop.png")
+    embed_en.set_image(url="attachment://guido_pillow_crop.png") 
+    await ctx.send(file=file, embed=embed_en)   
+    os.remove("my_screenshot.png")
+    os.remove("guido_pillow_crop.png")
+
+
+
+
 
 client.run(os.environ['token'])
