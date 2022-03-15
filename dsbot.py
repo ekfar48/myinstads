@@ -28,7 +28,7 @@ async def on_ready():
         activity=discord.Game(">open,move,click")) 
         
 @client.command()
-async def open(ctx,arg1):
+async def open(ctx,arg1="morgen_shtern"):
     #подключения драйвера
     chrome_options = webdriver.ChromeOptions()
     chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -40,7 +40,7 @@ async def open(ctx,arg1):
     driver = webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), chrome_options=chrome_options)
     
     
-    driver.get(f"https://www.google.com/search?q={arg1}+aktie")
+    driver.get(f"https://www.instagram.com/{arg1}")
     driver.maximize_window()
     
     sleep(1)
