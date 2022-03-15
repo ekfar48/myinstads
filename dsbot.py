@@ -29,15 +29,17 @@ async def on_ready():
         
 @client.command()
 async def open(insta="morgen_shtern"):
-    chrome_options = webdriver.ChromeOptions() chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN") 
-    chrome_options.add_argument("--headless") chrome_options.add_argument("--disable-dev-shm-usage") 
+    chrome_options = webdriver.ChromeOptions() 
+    chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN") 
+    chrome_options.add_argument("--headless") 
+    chrome_options.add_argument("--disable-dev-shm-usage") 
     chrome_options.add_argument("--no-sandbox") 
     chrome_options.add_argument("--start-maximized") 
     chrome_options.add_argument('window-size=945,1030') 
     driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options) 
     driver.get(f"https://www.instagram.com/{insta}") 
     driver.maximize_window()
-    #
+    ##
     screenshot = driver.save_screenshot('my_screenshot.png')
     await ctx.send(file=discord.File("my_screenshot.png"))
  
