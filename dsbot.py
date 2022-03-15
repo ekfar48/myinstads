@@ -37,7 +37,7 @@ async def open(ctx,arg1):
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--start-maximized")
     chrome_options.add_argument('window-size=945,1030')
-    driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), options=chrome_options)
+    driver = webdriver.Chrome(executable_path=str(os.environ.get("CHROMEDRIVER_PATH")), options=chrome_options)
     
     
     driver.get(f"https://www.google.com/search?q={arg1}+aktie")
