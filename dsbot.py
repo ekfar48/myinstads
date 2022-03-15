@@ -41,7 +41,9 @@ async def open(ctx,insta="morgen_shtern"):
     #driver.maximize_window()
     ##
     screenshot = driver.save_screenshot('my_screenshot.png')
-    await ctx.send(file=discord.File("my_screenshot.png"))
- 
+    ##await ctx.send(file=discord.File("my_screenshot.png"))
+
+    file = discord.File(r"my_screenshot.png", filename="my_screenshot.png")
+    await ctx.send(file=file)
     
 client.run(os.environ['token'])
